@@ -1,4 +1,5 @@
-from joblib import load
+import tensorflow
+
 
 # todo make singleton
 class ModelProvider:
@@ -6,8 +7,5 @@ class ModelProvider:
         pass
 
     def get_model(self):
-        model = load('model.pkl')
+        model = tensorflow.keras.models.load_model('model')
         return model
-
-
-model = ModelProvider().get_model()
