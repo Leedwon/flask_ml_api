@@ -14,8 +14,6 @@ model = model_provider.get_model()
 
 # returns numpy array
 def prepare_image(image: Image, target):
-    if image.mode != "RGB":
-        image = image.convert("RGB")
     image = image.resize(target)
     image = img_to_array(image)
     image = np.expand_dims(image, axis=0)
@@ -31,7 +29,7 @@ def predict():
             image = flask.request.files["image"].read()
             image = Image.open(io.BytesIO(image))
 
-            image = prepare_image(image, (224, 224))
+            image = prepare_image(image, (28, 28))
 
             predictions = model.predict(image)
             results = imagenet_utils.decode_predictions(predictions)

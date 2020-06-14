@@ -1,11 +1,13 @@
-from tensorflow.keras.applications import ResNet50
-
+from joblib import load
 
 # todo make singleton
 class ModelProvider:
     def __init__(self):
         pass
-        self._model = ResNet50(weights='imagenet')
 
     def get_model(self):
-        return self._model
+        model = load('model.pkl')
+        return model
+
+
+model = ModelProvider().get_model()
