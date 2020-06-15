@@ -27,7 +27,7 @@ def predict():
     if flask.request.method == "POST":
         if flask.request.files.get("image"):
             image = flask.request.files["image"].read()
-            image = Image.open(io.BytesIO(image))
+            image = Image.open(io.BytesIO(image)).convert("L")
 
             image = prepare_image(image)
 

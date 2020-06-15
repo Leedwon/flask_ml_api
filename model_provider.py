@@ -1,7 +1,6 @@
 import tensorflow
 
 
-# todo make singleton
 class ModelProvider:
     def __init__(self):
         pass

@@ -1,5 +1,3 @@
-
-
 from tensorflow.keras.datasets import mnist
 from tensorflow.keras.utils import to_categorical
 from tensorflow.python.keras.layers import Conv2D, Flatten, Dense
